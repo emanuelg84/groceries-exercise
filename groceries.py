@@ -21,6 +21,35 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ]
 
+def sort_by_name(any_product):
+    return any_product["name"]
 
 
-print(products)
+sorter_products = sorted(products,key=sort_by_name)
+
+
+products_count = len(products)
+print("----------------")
+print("THERE ARE " + str(products_count) +" PRODUCTS")
+print("----------------")
+for product in sorter_products:
+    price=product["price"]
+    print(" +  "+product["name"]+" "+"($"+str(price)+")")
+
+departments=[]
+
+for p in products:
+           departments.append(p["department"])
+
+unique_departments=list(set(departments))
+  
+number_departments=len(unique_departments)
+
+unique_departments.sort()
+
+print("There are"+" "+str(number_departments) +" "+"departments")
+
+for d in unique_departments:
+    print(d.title())
+
+
